@@ -4,12 +4,14 @@
 #' @param codes integer vector of admin codes (e.g. `c(11, 26)`)
 #'   or character administrative area names (e.g. `c("Seoul", "Daejeon")`).
 #' @param type character(1). "population", "housing", "tax", "economy",
-#'   "medicine", "migration", "environment" or "mortality"
+#'   "medicine", "migration", "environment", "mortality", or "social security".
 #'   Defaults to "population".
 #' @param year  integer(1). One of 2010, 2015, or 2020.
 #' @param level character(1). "adm1" for province-level or
 #'   "adm2" for municipal-level. Defaults to "adm2".
 #' @param aggregator function to aggregate values when `level = "adm1"`.
+#' @param geometry logical(1). If `TRUE`, returns an `sf` object
+#'   with geometries attached. Defaults to `FALSE`.
 #' @param ... additional arguments passed to the `aggregator` function.
 #'   (e.g., `na.rm = TRUE`).
 #' @note Using characters in `codes` has a side effect of returning
@@ -43,10 +45,12 @@ anycensus <- function(
   codes = NULL,
   type  = c(
     "population", "housing", "tax", "mortality", "economy",
-    "medicine", "migration", "environment", "welfare"
+    "medicine", "migration", "environment", "welfare",
+    "social security"
   ),
   level = c("adm2", "adm1"),
   aggregator = sum,
+  geometry = FALSE,
   ...
 ) {
   censuskor <- NULL
@@ -149,6 +153,19 @@ anycensus <- function(
         ),
         .groups = "keep"
       )
+  }
+
+  if (geometry) {
+    stopifnot(level == "adm2")
+    boundaries <- load_districts(year = year)
+    boundaries <-
+      dplyr::left_join(
+        dfe,
+        boundaries,
+        by = c("adm2_code" = "adm2_code")
+      )
+    dfe <-
+      sf::st_as_sf(boundaries, sf_column_name = "geometry")
   }
   dfe
 }

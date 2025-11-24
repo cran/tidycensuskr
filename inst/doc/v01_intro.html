@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2025-11-22" />
+<meta name="date" content="2025-11-24" />
 
 <title>Working with tidycensuskr</title>
 
@@ -338,7 +338,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <h1 class="title toc-ignore">Working with tidycensuskr</h1>
-<h4 class="date">November 22, 2025</h4>
+<h4 class="date">November 24, 2025</h4>
 
 
 
@@ -352,15 +352,15 @@ to administrative districts.</p>
 <p>Load the package:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidycensuskr)</span></code></pre></div>
 <p>tidycensuskr will work at its full potential with the companion data
-package <code>tidycensussfkr</code>, which contains the district
+package <code>tidycensuskr.sf</code>, which contains the district
 boundaries of South Korea. The package can be installed from
 R-universe:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidycensussfkr&quot;</span>, <span class="at">repos =</span> <span class="st">&quot;https://sigmafelix.r-universe.dev&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidycensuskr.sf&quot;</span>, <span class="at">repos =</span> <span class="st">&quot;https://sigmafelix.r-universe.dev&quot;</span>)</span></code></pre></div>
 <p>After installing the companion package, three RDS files for 2010,
 2015, and 2020 will be accessible through the function
 <code>system.file()</code>. For example, the RDS file path of the 2010
 district boundaries can be loaded as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>fs10 <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;adm2_sf_2010.rds&quot;</span>, <span class="at">package =</span> <span class="st">&quot;tidycensussfkr&quot;</span>)</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>fs10 <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;adm2_sf_2010.rds&quot;</span>, <span class="at">package =</span> <span class="st">&quot;tidycensuskr.sf&quot;</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>adm2_sf_2010 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(fs10)</span></code></pre></div>
 </div>
 <div id="understanding-korean-geographic-hierarchies" class="section level2">
