@@ -1,6 +1,6 @@
 Package: tidycensuskr
 Title: Easy Access for South Korea Census Data and Boundaries
-Version: 0.2.5
+Version: 0.2.7
 Authors@R: c(
     person(given = "Insang", 
           family = "Song", 
@@ -29,8 +29,9 @@ LazyData: true
 Depends: R (>= 4.2.0)
 RoxygenNote: 7.3.3
 Imports: sf, dplyr, tidyr, kosis, utils, rlang
-Suggests: knitr, withr, purrr, rmarkdown, ggplot2, biscale, cowplot,
-        tmap, geodata, testthat (>= 3.0.0), ggspatial, spdep
+Suggests: knitr, withr, purrr, rmarkdown, janitor, geofacet, ggplot2,
+        biscale, cowplot, tmap, geodata, testthat (>= 3.0.0),
+        ggspatial, spdep
 Config/testthat/edition: 3
 Encoding: UTF-8
 VignetteBuilder: knitr
@@ -39,10 +40,10 @@ URL: https://github.com/sigmafelix/tidycensuskr,
         https://sigmafelix.r-universe.dev/tidycensuskr/
 BugReports: https://github.com/sigmafelix/tidycensuskr/issues
 NeedsCompilation: no
-Packaged: 2025-11-24 00:35:08 UTC; isong
+Packaged: 2025-12-30 03:51:21 UTC; isong
 Author: Insang Song [aut, cre] (ORCID: <https://orcid.org/0000-0001-8732-3256>),
   Sohyun Park [aut, ctb] (ORCID: <https://orcid.org/0000-0002-1231-5662>),
   Hyesop Shin [aut, ctb] (ORCID: <https://orcid.org/0000-0003-2637-7933>)
 Maintainer: Insang Song <geoissong@snu.ac.kr>
 Repository: CRAN
-Date/Publication: 2025-11-24 08:10:02 UTC
+Date/Publication: 2026-01-08 12:00:02 UTC

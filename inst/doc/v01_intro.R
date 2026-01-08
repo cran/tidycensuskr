@@ -32,7 +32,7 @@ head(df_2020)
 df_2020_sido <- anycensus(year = 2020, 
                           type = "mortality",
                           level = "adm1",
-                          aggregator = sum,
+                          aggregator = mean,
                           na.rm = TRUE)
 head(df_2020_sido)
 
